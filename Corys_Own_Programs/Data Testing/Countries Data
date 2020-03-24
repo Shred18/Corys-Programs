@@ -1,0 +1,19 @@
+#for reference, the number on the far left when you run the program is known as an indicy
+#Countries practice
+import pandas as pd
+from matplotlib import pyplot as plt
+#pd.read_csv('countries.csv')
+data = pd.read_csv('countries.csv')
+plt.title('Population by year')
+plt.xlabel('Year')
+plt.ylabel('Population in millions')
+plt.plot(data.country, data.population)
+plt.show()
+#We want to compare the population growth in the U.S and China
+
+#us = data[data.country == 'United States'] #this will give us a portion of the data in which the series of the data is true. make sure to always use the brackets
+#china = data[data.country == 'China']
+#plt.plot(us.year, us.population / 10**6, 'o') #10**6 is because the population is so big the numbers arent showing, so this shows it by the millions
+#plt.plot(china.year, china.population / 10**6, 'o')
+#plt.legend(['United States', 'China'])
+#plt.show()

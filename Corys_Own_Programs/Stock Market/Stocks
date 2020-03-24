@@ -1,0 +1,60 @@
+import bs4
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+#attempt 2 https://www.youtube.com/watch?v=15f4JhJ8SiQ
+
+url = "http://eoddata.com/stocklist/NYSE/A.htm"
+r = requests.get(url)
+html_content = r.text
+soup = BeautifulSoup(html_content, 'lxml')
+
+stocks_table = soup.find('table',class_='quotes')
+
+data = stocks_table.get_text('|')
+
+
+print(data)
+
+#COME BACK TO THIS - YOU JUST NEED TO FIGURE OUT HOW TO GET IT INTO AN EXCEL SHEET
+
+
+
+
+
+
+
+
+
+#for stock in stocks_table.find_all('tbody'):
+  #  print(stock)
+ #   rows = stock.find_all('tr')
+   # print(rows)
+   # for row in rows:
+   #     info = row.find('td')
+    #    print(info)
+
+
+
+
+
+
+
+
+#scraping info off the web (https://www.youtube.com/watch?v=E5cSNSeBhjw)
+
+#page = requests.get('http://eoddata.com/stocklist/NYSE/A.htm')
+#soup = BeautifulSoup(page.content,'html.parser') #lets you view the entire html code via the python console
+#stocks = soup.find(id="ctl00_cph1_divSymbols")
+#items = stocks.find_all(class_='quotes')
+
+
+#a = (items[0].find(class_='ro').get_text('|'))
+#print((items[0].find(class_='ro').get_text('|')))
+#print(a)
+
+
+
+
+#ro = [item.find(class_='ro').get_text('|') for item in items] - this is using a for loop to iterate through everything

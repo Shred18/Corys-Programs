@@ -1,0 +1,23 @@
+#this is a million dollar quest - lets see how many years it would take your business to make 1,000,000 with a income and b expenses,
+#both increasing by 50% each year
+def Million_dollar_quest():
+
+    #a is the income
+    #b is the expense
+    a = 100000
+    b = 50000
+    profit = a - b
+    goal = 1000000
+    year = 0
+
+    while profit < goal:
+        a = a + (a * .5)
+        b = b + (b * .5)
+        profit = a - b
+        year = year + 1
+        print(year , profit)
+
+    else:
+        return a - b
+
+#how many products to hit 1,000,000 in profit

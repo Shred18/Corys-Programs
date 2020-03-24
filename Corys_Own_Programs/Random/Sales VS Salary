@@ -1,0 +1,28 @@
+#program to determine whether or not to jump from your job
+
+def jump_or_not():
+
+    job_income = 3500
+    side_hussle = 0
+    prod_cost = side_hussle * 15
+    revenue = side_hussle * 55
+    gross_profit = revenue - prod_cost
+    tax = gross_profit * .2
+    real_profit = gross_profit - tax
+    month = 0
+
+    while real_profit < job_income:
+        side_hussle = side_hussle + 8
+        prod_cost = side_hussle * 15
+        revenue = side_hussle * 55
+        gross_profit = revenue - prod_cost
+        tax = gross_profit * .2
+        real_profit = gross_profit - tax
+        month = month + 1
+
+        print("you've sold ", side_hussle, "watches total. You have cleared ", real_profit," total in profit. This took", month, "months to do")
+
+
+    else:
+        print("you can now leave your job, you need to sell ", side_hussle, "watches total to do so. This will clear ", real_profit,"in profit. This took a total of ", month," months to do")
+

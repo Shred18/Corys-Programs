@@ -1,0 +1,22 @@
+#write a program that determines which is more efficient - Living in an apartment for 5 years, or buying a home immediately and living it for 5 years
+year = 0
+proptax = .0209
+homeinsurance = 1200
+utilities = 2060
+appreciation = .038
+
+home = 150000
+apartment = 6000
+
+while year < 6:
+    if home >= 100000:
+        tax = proptax * home
+        apprec = appreciation * home
+        home += apprec
+        exp = tax + utilities + homeinsurance
+        year += 1
+        print("homes value is", home, "for year", year, "and your yearly expenses will be ", exp, "with your taxes increasing to", tax)
+    else:
+        print("Total value is", home)
+
+

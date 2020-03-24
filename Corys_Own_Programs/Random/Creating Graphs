@@ -1,0 +1,22 @@
+
+#Creating graphs from data in python
+import pandas as pd
+from matplotlib import pyplot as plt
+desired_width = 320 #increases width
+pd.set_option('display.width',desired_width) #sets to this increased width
+pd.set_option('display.max_columns', 10) #spreads width out to 10 columns
+x = [1,2,3]
+y = [1,4,9]
+plt.plot(x,y) #plots x on the x axis, and y on the y axis
+plt.title('Test plot') #set title
+plt.xlabel('X') #X axis
+plt.ylabel('Y') #Y axis
+plt.legend(['This is Y', 'This is X'])
+
+#importing data from excel file & creating graph from it
+
+#sample_data = pd.read_excel('filename')
+#sample_data.Profit      #use this as input if you'd like to call a specific column from the table
+#sample_data.Profit.iloc[29]      #this will get the final values from the column
+#plt.plot(sample_data.Profit, sample_data.Revenue)
+#plt.show()

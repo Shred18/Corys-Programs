@@ -1,0 +1,20 @@
+import seaborn as sns
+import pandas as pd
+import Sales_automation as fl
+from matplotlib import pyplot as plt
+data = pd.read_excel('/Users/coryshreffler/Desktop/Python/Corys_Own_Programs/NDur_sales-Automation/SalesAutomate.xlsx',skiprows=1) #you can use seaborn by setting data = to the file path
+data['POS'] = data['POS'].str.lower() #changing the column to lowercase because of the way seaborn plots the graph
+pospercent = fl.pospercent()
+weeklysold = fl.weeklysold()
+#print(weeklysold[0], weeklysold[1])
+plt.plot(weeklysold[0], weeklysold[1],marker='o',markersize=5,markerfacecolor = 'red', lw=1)
+plt.xlabel('Weeks')
+plt.ylabel('Total Sales')
+plt.ylim(-1,20)
+plt.title('Sales By Week For Year 1')
+plt.grid()
+
+def salesby():
+    sns.countplot(x=data['POS'],data=data)
+#figure out why offer up is printing twice, and figure out how to make the graphs count by the number of sales per category, not just the
+#number of times the category has showed up

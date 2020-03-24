@@ -1,0 +1,31 @@
+import pandas as pd
+import numpy as np
+from matplotlib import pyplot as plt
+desired_width = 320 #increases width
+pd.set_option('display.width',desired_width) #sets to this increased width
+pd.set_option('display.max_columns', 10) #spreads width out to 10 columns
+
+pd.read_excel('SALESTEST.xlsx') #Type this in after you run the console, and it will execute the chart in your console
+
+
+
+
+
+#importing data from excel file & creating graph from it
+plt.title('Profit by the day') #set title
+plt.xlabel('Day') #X axis
+plt.ylabel('Sales') #Y axis
+plt.legend(['This is Y', 'This is X'])
+sample_data = pd.read_excel('SALESTEST.xlsx')
+#sample_data.Sales    #use this as input if you'd like to call a specific column from the table
+#sample_data.Sales.iloc[29]      #this will get the final values from the column
+plt.plot(sample_data.Day, sample_data.Sales, 'o') #by adding 'o', the data becomes dots instead of a line
+plt.show()
+
+
+
+
+#Countries practice
+    #mport pandas as pd
+    #from matplotlib import pyplot as plt
+    #pd.read_excel('countries.csv')

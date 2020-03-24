@@ -1,0 +1,156 @@
+#This program will show you how much you would make if you utilized all selling platforms
+#Mercari, Offer up, Letgo, Ebay, Amazon, Craigslist, Nextdoor
+#Weekends: Mercari +2 , Offer Up +2, Lego +1, Craigslist +1, Nextdoor +1
+#Weekdays: offerup and letgo sell good wednesday/thursday, usually one every other day. Mercari sells 3 of the 4 week days
+#Craigslist, nextdoor, amazon, and ebay sell one every three days
+#after 4 months, your sales will increase by 10% across every platform, then 15% 2 months after that, than 20% 3 months following.
+#What is your yearly profit totaling, after taxes have been taken out?
+
+
+week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+mercari = 0
+offer_up = 0
+let_go = 0
+ebay = 0
+amazon = 0
+craigs_list = 0
+next_door = 0
+
+def profit(X):
+    sold = X
+    cost = 15
+    revenue = sold * 50
+    gross_profit = revenue - cost
+    tax = gross_profit * .2
+    profit = gross_profit - tax
+
+    return profit
+
+
+
+
+
+
+def year_to_week():
+    days = 0
+    new_week = 0
+    mercari = 0
+    offer_up = 0
+    let_go = 0
+    ebay = 0
+    amazon = 0
+    craigs_list = 0
+    next_door = 0
+
+    while days < 365 and new_week < 52:
+        if days < 7:
+            #print(week[days])
+            days += 1
+            if days == 1:
+                ebay += 1
+                amazon += 1
+                craigs_list += 1
+                next_door += 1
+                offer_up += 1
+                let_go += 1
+                print("MONDAY SALES: EBAY", ebay, "AMAZON", amazon, "CRAIGS LIST", craigs_list, "NEXT DOOR", next_door, "OFFER UP", offer_up, "LET GO", let_go)
+
+            elif days == 2:
+                mercari += 1
+                print(' TUESDAY SALES: MERCARI', mercari)
+
+            elif days == 3:
+                mercari += 1
+                offer_up += 1
+                let_go += 1
+                print('  WEDNESDAY SALES: MERCARI', mercari, 'OFFER UP', offer_up, 'LET GO', let_go)
+            elif days == 4:
+                mercari += 1
+                ebay += 1
+                amazon += 1
+                craigs_list += 1
+                next_door += 1
+                print('   THURSDAY SALES: MERCARI', mercari, 'EBAY', ebay, 'AMAZON', amazon, 'CRAIGS LIST', craigs_list, 'NEXT DOOR', next_door)
+            elif days == 5:
+                mercari += 2
+                offer_up += 2
+                let_go += 1
+                craigs_list += 1
+                next_door += 1
+                print('     FRIDAY SALES: MERCARI', mercari, 'OFFER UP', offer_up, 'LET GO', let_go, 'CRAIGS LIST', craigs_list, 'NEXT DOOR', next_door)
+            elif days == 6:
+                mercari += 2
+                offer_up += 2
+                let_go += 1
+                craigs_list += 1
+                next_door += 1
+                print('       SATURDAY SALES: MERCARI', mercari, 'OFFER UP', offer_up, 'LET GO', let_go, 'CRAIGS LIST', craigs_list, 'NEXT DOOR', next_door)
+            elif days == 7:
+                mercari += 2
+                offer_up += 2
+                let_go += 1
+                craigs_list += 1
+                next_door += 1
+                print('        SUNDAY SALES: MERCARI', mercari, 'OFFER UP', offer_up, 'LET GO', let_go, 'CRAIGS LIST', craigs_list, 'NEXT DOOR', next_door)
+            else:
+                continue
+        else:
+            if new_week == 16:
+                increase = mercari * .1
+                mercari += increase
+                increase_two = offer_up * .1
+                offer_up += increase_two
+                increase_three = let_go * .1
+                let_go += increase_three
+                increase_four = craigs_list * .1
+                craigs_list += increase_four
+                increase_five = next_door * .1
+                next_door += increase_five
+                days = 0
+                new_week += 1
+            elif new_week == 24:
+                increase = mercari * .15
+                mercari += increase
+                increase_two = offer_up * .15
+                offer_up += increase_two
+                increase_three = let_go * .15
+                let_go += increase_three
+                increase_four = craigs_list * .15
+                craigs_list += increase_four
+                increase_five = next_door * .15
+                next_door += increase_five
+                days = 0
+                new_week += 1
+            elif new_week == 36:
+                increase = mercari * .2
+                mercari += increase
+                increase_two = offer_up * .2
+                offer_up += increase_two
+                increase_three = let_go * .2
+                let_go += increase_three
+                increase_four = craigs_list * .2
+                craigs_list += increase_four
+                increase_five = next_door * .2
+                next_door += increase_five
+                days = 0
+                new_week += 1
+
+            else:
+                new_week += 1
+                days = 0
+
+    total_mercari = mercari
+    total_offerup = offer_up
+    total_letgo = let_go
+    total_ebay = ebay
+    total_amazon = amazon
+    total_craigslist = craigs_list
+    total_nextdoor = next_door
+    grand_total = total_mercari + total_offerup + total_letgo + total_amazon + total_craigslist + total_nextdoor
+    #return("Total:  number of weeks ", new_week, "Mercari Stats", total_mercari, profit(total_mercari), "Offer up stats", total_offerup, profit(total_offerup), 'Let Go Total:', total_letgo, profit(total_letgo), 'Ebay Total:',total_ebay, profit(total_ebay), 'Amazon Total:', total_amazon, profit(total_amazon), 'Craigslist total:', total_craigslist, profit(total_craigslist), 'Nextdoor total:',total_nextdoor, profit(total_nextdoor))
+    return("Total sold for the year,", grand_total, "with a profit of", profit(grand_total))
+
+def sales_per_category():
+    profit()
+

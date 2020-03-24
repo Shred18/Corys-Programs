@@ -1,0 +1,51 @@
+import Sales_automation as fl #importing your file. Must be located in same folder
+business = True
+while True:
+
+    busexp = fl.busexp()
+    pos = fl.pospercent()
+    profit = fl.profit()
+    taxes = fl.taxes()
+    grossprofit = fl.grossprofit()
+    invexpenses = fl.invexpenses()
+    revenue = fl.revenue()
+    inventory = fl.inventory() #Because it's being printed and not returned, this will automatically print first
+                                #before it says 'welcome cory'. If you end up changing the inv function to return,
+                                #you will be able to call it in at your discresion
+
+    taxrate = .153
+
+    grossprofit2 = grossprofit - busexp
+    taxes2 = grossprofit2 * taxrate
+    profit2 = grossprofit2 - taxes2
+
+    busandinv = ("Do you want to know the overall profitability of your business with investments taken out too? Y or N")
+    onlyinv = ("Do you want to know the profitability of your business based off just inventory expenses? Y or N")
+    totalinv = ('Would you like to perform a total inventory count? Y or N')
+
+    print('Total Inventory:', inventory)
+    print("WELCOME CORY! LETS SEE HOW THE BUSINESS IS GOING")
+
+
+
+    if input(onlyinv) == 'Y':
+        print('[BEFORE REINVESTING EXPENSES]\nRevenue:', revenue, '\nInventory Expenses:', invexpenses,'\nGross profit:', grossprofit, '.\nTaxes Owed: ', taxes, '\nProfit:', profit, '.' )
+        if input(busandinv) == 'Y':
+                print('Business Expenses (Aside from inventory) ', busexp, '\nTaxes Owed ', taxes2, '\nProfit ', profit2)
+                break
+    elif input(busandinv) == 'Y':
+        print('Business Expenses (Aside from inventory) ', busexp, '\nTaxes Owed ', taxes2, '\nProfit ', profit2)
+        if input(onlyinv) == 'Y':
+            print('[BEFORE REINVESTING EXPENSES]\nRevenue:', revenue, '\nInventory Expenses:', invexpenses,'\nGross profit:', grossprofit, '.\nTaxes Owed: ', taxes, '\nProfit:', profit, '.')
+            break
+    else:
+        break
+business = False
+print('Keep Grinding!')
+
+
+
+
+
+
+
